@@ -1,0 +1,382 @@
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  display: flex;
+  background: #eef3f8;    /* slightly darker so sections pop out */
+  color: #000;
+}
+
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  background: linear-gradient(145deg, #0c0c0c, #1a1a1a);
+  border-right: 1px solid #2a2a2a;
+  padding: 30px 20px;
+  box-shadow: 4px 0 18px rgba(0,0,0,0.4);
+  overflow-y: auto;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  text-align: center;
+  color: #fff;
+  margin: 15px 0;
+}
+
+/* SOCIAL ICONS */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.socials i {
+  font-size: 22px;
+  color: #9ca3af;
+  transition: 0.3s;
+}
+
+.socials i:hover {
+  color: #fff;
+  transform: scale(1.15);
+}
+
+/* NAVIGATION */
+.side-nav { display: flex; flex-direction: column; gap: 12px; }
+
+.nav-link {
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #cbd5e1;
+  transition: 0.25s;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 2px;
+  background: #60a5fa;
+  transform: scaleX(0);
+  transition: 0.25s;
+}
+
+.nav-link:hover::after { transform: scaleX(1); }
+.nav-link:hover { color: #fff; transform: translateX(4px); }
+.nav-link.active { background: rgba(96,165,250,0.15); color: #fff; }
+
+/* CONTENT */
+.content { margin-left: 260px; width: calc(100% - 260px); padding: 0; }
+
+/* HERO */
+.hero {
+  height: 100vh;
+  padding: 40px 70px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero > * { position: relative; }
+
+.hero-title { font-size: 55px; color: #fff; font-weight: 700; }
+.hero-text  { color: #fff; font-size: 22px; }
+
+/* SECTIONS */
+.section {
+  background: #ffffff;        /* Slight contrast from the main background */
+  padding: 60px;
+  margin: 40px 0;             /* More space between sections */
+  border-radius: 12px;        /* Clean card-like look */
+  border: 1px solid #e0e6ec;  /* Thin separation line */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05); /* soft shadow */
+}
+
+.section-title { font-size: 26px; margin-bottom: 20px; }
+
+/* ABOUT */
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  position: relative;
+}
+
+.about-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 64%;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: #d0d9e1;
+}
+
+.about-right p { margin-bottom: 12px; font-size: 16px; }
+.about-right i { margin-right: 8px; color: #4d6276; }
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.skill-box {
+   background: linear-gradient(145deg, #f9fcff, #e6eef6);
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #d0d9e1;
+  transition: 0.25s ease-in-out;
+}
+.skill-box:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: linear-gradient(145deg, #ffffff, #dce6f0);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border-color: #c1ccd6;
+}
+
+/* EXPERIENCE */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.exp-company, .exp-date { color: #444; }
+.exp-list { margin-top: 10px; }
+
+/* VIDEO */
+.video-box {
+  background: #e6eef6;
+  border-radius: 12px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d0d9e1;
+}
+
+/* ANIMATIONS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideLeft 1s ease-out forwards;
+}
+
+.slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+  animation: slideRight 1s ease-out forwards;
+}
+
+/* CAREER OBJECTIVE LIST */
+.career-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.career-list li {
+  background: #eef3f8;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid #d0d9e1;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.career-list li i {
+  font-size: 18px;
+  color: #4d6276;
+}
+
+#home.section {
+  border: none !important;
+  margin-top: 0 !important;
+}
+
+
+/* ===== FINAL MINIMALIST POLISH PACK ===== */
+
+/* Softer section look */
+.section {
+  background: #ffffff;
+  padding: 50px;
+  margin: 35px 0;
+  border-radius: 10px;
+  border: 1px solid #e7ecf0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* More elegant section titles */
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1c1f23;
+  margin-bottom: 25px;
+}
+
+/* More consistent paragraph spacing */
+.section-text {
+  line-height: 1.75;
+  color: #333;
+}
+
+/* About divider softer */
+.about-wrapper::before {
+  background: #e2e7ec;
+}
+
+/* Experience spacing cleaner */
+.exp-list li {
+  margin-bottom: 6px;
+}
+
+/* Glossy skill boxes already good — just add subtle inner highlight */
+.skill-box {
+  position: relative;
+}
+
+.skill-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Career + summary list polish */
+.career-list li,
+.summary-list li {
+  background: #f5f9fc;
+  border-color: #d6dde4;
+}
+
+/* References & Experience subheadings */
+.col h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+/* Smaller icons for cleaner minimalist feel */
+.career-list li i,
+.summary-list li i,
+.about-right i {
+  font-size: 16px;
+}
+
+/* Softer shadow on skill hover */
+.skill-box:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+/* Video box improvement */
+.video-box {
+  background: #f2f6fa;
+  border: 1px solid #d6dde4;
+}
+
+/* Remove random spacing in contact section */
+.contact-email,
+.contact-phone {
+  margin-top: 6px;
+}
+
+/* Ensure hero blends nicely */
+#home.section {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+@keyframes slideLeft { to { opacity: 1; transform: translateX(0); } }
+@keyframes slideRight { to { opacity: 1; transform: translateX(0); } }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .hero {
+    padding: 40px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-title { font-size: 36px; }
+  .hero-text { font-size: 18px; }
+
+  .about-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .about-wrapper::before { display: none; }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .two-col::before { display: none; }
+}
