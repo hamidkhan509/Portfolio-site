@@ -96,6 +96,7 @@ body {
   padding: 40px 70px;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -470,3 +471,4 @@ body {
 
   .two-col::before { display: none; }
 }
+
