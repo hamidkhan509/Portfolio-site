@@ -96,8 +96,8 @@ body {
   padding: 40px 70px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   position: relative;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -474,5 +474,3 @@ body {
 
   .two-col::before { display: none; }
 }
-
-
