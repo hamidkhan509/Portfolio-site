@@ -186,11 +186,14 @@ body {
   background: #e6eef6;
   border-radius: 12px;
   height: 320px;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid #d0d9e1;
+  margin: 0 auto;   /* CENTER FIX */
 }
+
 
 /* ANIMATIONS */
 .fade-in {
@@ -471,4 +474,5 @@ body {
 
   .two-col::before { display: none; }
 }
+
 
